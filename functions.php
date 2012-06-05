@@ -591,3 +591,30 @@ function twentyeleven_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'twentyeleven_body_classes' );
 
+
+// Add a widget in WordPress Dashboard
+function wpc_dashboard_widget_function() {
+    // Entering the text between the quotes
+    echo '<ul>
+    <li>Criado por <a href="mailto:james.peret@gmail.com">James Peret</a>.</li>
+    <li>Hosting: <a href="http://www.nt10.com.br">NT10</a> (por James Peret)</li>
+    </ul>';
+}
+function wpc_add_dashboard_widgets() {
+    wp_add_dashboard_widget('wp_dashboard_widget', 'Informações Tecnicas', 'wpc_dashboard_widget_function');
+}
+add_action('wp_dashboard_setup', 'wpc_add_dashboard_widgets' );
+
+add_action('wp_dashboard_setup', 'wpc_dashboard_widgets');
+function wpc_dashboard_widgets() {
+    global $wp_meta_boxes;
+    // Last drafts
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']);
+    // Last comments
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+    // Incoming links
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+    // Plugins
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+}
+
