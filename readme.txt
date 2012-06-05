@@ -1,5 +1,4 @@
-= TWENTY ELEVEN =
+Minimalistic Artistic Portfolio Wordpress Theme
+By James Peret
+Created in 2010
 
-* by the WordPress team, http://wordpress.org/
-
-== ABOUT TWENTY ELEVEN ==
